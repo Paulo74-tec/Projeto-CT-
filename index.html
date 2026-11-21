@@ -3,10 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Portal dos Trabalhadores</title>
+<title>CT CINCA | Comissão de Trabalhadores</title>
 
 <style>
+
+:root{
+--azul:#163758;
+--azul-claro:#2f7dc5;
+--branco:#ffffff;
+--cinza:#f4f6f8;
+}
 
 *{
 margin:0;
@@ -21,8 +27,7 @@ scroll-behavior:smooth;
 body{
 font-family:'Segoe UI',sans-serif;
 color:#333;
-background:#fff;
-line-height:1.6;
+background:white;
 }
 
 header{
@@ -31,132 +36,129 @@ top:0;
 left:0;
 width:100%;
 z-index:1000;
-padding:20px 6%;
+padding:15px 50px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,25,50,0.85);
-backdrop-filter:blur(8px);
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:15px;
+background:rgba(22,55,88,.95);
+backdrop-filter:blur(10px);
 }
 
 .logo img{
 height:60px;
-background:white;
-padding:5px;
-border-radius:8px;
 }
 
-.logo span{
-color:white;
-font-weight:700;
-font-size:1.1rem;
-}
-
-nav{
+.menu{
 display:flex;
-gap:25px;
+gap:30px;
 }
 
-nav a{
+.menu a{
 color:white;
 text-decoration:none;
 font-weight:600;
-font-size:0.95rem;
 transition:.3s;
 }
 
-nav a:hover{
-color:#7fc8ff;
+.menu a:hover{
+color:#8ec5ff;
 }
 
 .hero{
 height:100vh;
-background:url('hero-mosaico.jpg');
+
+background:
+linear-gradient(
+rgba(22,55,88,.40),
+rgba(22,55,88,.50)
+),
+url('hero.jpg');
+
 background-size:cover;
 background-position:center;
-background-repeat:no-repeat;
+
 display:flex;
-align-items:flex-end;
+align-items:center;
 justify-content:center;
-padding:50px;
+text-align:center;
 }
 
-.hero-btn{
-background:#003366;
+.hero-content{
+max-width:900px;
 color:white;
+padding:20px;
+}
+
+.hero-content h1{
+font-size:4rem;
+margin-bottom:20px;
+text-shadow:2px 2px 12px rgba(0,0,0,.3);
+}
+
+.hero-content p{
+font-size:1.4rem;
+margin-bottom:35px;
+}
+
+.botao{
+display:inline-block;
 padding:16px 35px;
+background:white;
+color:var(--azul);
 text-decoration:none;
 border-radius:8px;
 font-weight:bold;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
 transition:.3s;
 }
 
-.hero-btn:hover{
-background:#0059b3;
-transform:translateY(-2px);
+.botao:hover{
+transform:translateY(-3px);
 }
 
 .section{
 padding:90px 10%;
 }
 
-.title{
+.titulo{
 text-align:center;
 font-size:2.5rem;
-color:#003366;
-margin-bottom:20px;
+color:var(--azul);
+margin-bottom:25px;
 }
 
-.subtitle{
+.subtitulo{
 text-align:center;
 max-width:850px;
 margin:auto;
-color:#666;
 margin-bottom:60px;
+line-height:1.8;
 }
 
-.about{
+.sobre{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:50px;
 align-items:center;
 }
 
-.about-image img{
+.sobre img{
 width:100%;
 border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,.15);
+box-shadow:0 15px 30px rgba(0,0,0,.15);
 }
 
-.about-text h3{
-font-size:2rem;
-margin-bottom:20px;
-color:#003366;
-}
-
-.about-text p{
-margin-bottom:15px;
-}
-
-.pillars{
+.cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 margin-top:40px;
 }
 
 .card{
 background:white;
+padding:30px;
 border-radius:15px;
-overflow:hidden;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 transition:.3s;
 }
 
@@ -164,95 +166,68 @@ transition:.3s;
 transform:translateY(-6px);
 }
 
-.card img{
-width:100%;
-height:200px;
-object-fit:cover;
-}
-
-.card-content{
-padding:25px;
-}
-
-.card-content h3{
-color:#003366;
-margin-bottom:10px;
-}
-
-.btn-small{
-display:inline-block;
-margin-top:15px;
-padding:10px 18px;
-background:#4aa7d8;
-color:white;
-text-decoration:none;
-border-radius:6px;
+.card h3{
+margin-bottom:15px;
+color:var(--azul);
 }
 
 .news{
-background:#f6f8fb;
+background:var(--cinza);
 }
 
-.news-grid{
-display:grid;
-gap:20px;
-}
-
-.news-item{
+.news-box{
 background:white;
 padding:25px;
+margin-bottom:20px;
 border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,.06);
+box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
-.contact{
-background:#003366;
+.contactos{
+background:var(--azul);
 color:white;
 text-align:center;
 }
 
-.contact h2{
-margin-bottom:20px;
-}
-
-.contact-info{
+.contactos p{
+margin:10px 0;
 font-size:1.1rem;
-line-height:2;
 }
 
 footer{
-background:#001f3d;
+background:#0e2438;
 color:white;
 text-align:center;
 padding:30px;
 }
 
 footer p{
-margin:8px 0;
+margin:6px 0;
 }
 
 @media(max-width:900px){
 
 header{
 flex-direction:column;
-gap:15px;
+padding:15px;
 }
 
-nav{
+.menu{
+margin-top:15px;
 flex-wrap:wrap;
 justify-content:center;
 }
 
-.about{
+.hero-content h1{
+font-size:2.5rem;
+}
+
+.hero-content p{
+font-size:1.1rem;
+}
+
+.sobre{
 grid-template-columns:1fr;
-}
-
-.title{
-font-size:2rem;
-}
-
-.hero{
-height:70vh;
 }
 
 }
@@ -265,13 +240,12 @@ height:70vh;
 <header>
 
 <div class="logo">
-<img src="Designer.png" alt="Logo">
-<span>Portal dos Trabalhadores</span>
+<img src="Designer.png" alt="CT CINCA">
 </div>
 
-<nav>
-<a href="#">Home</a>
-<a href="#sobre">Sobre Nós</a>
+<nav class="menu">
+<a href="#inicio">Início</a>
+<a href="#sobre">Comissão</a>
 <a href="#pilares">Pilares</a>
 <a href="#noticias">Comunicados</a>
 <a href="#contactos">Contactos</a>
@@ -279,41 +253,46 @@ height:70vh;
 
 </header>
 
-<section class="hero">
+<section id="inicio" class="hero">
 
-<a href="#sobre" class="hero-btn">
-Entrar no Portal
+<div class="hero-content">
+
+<h1>Comissão de Trabalhadores</h1>
+
+<p>
+Informação • Transparência • Participação
+</p>
+
+<a href="#sobre" class="botao">
+Conhecer a Comissão
 </a>
+
+</div>
 
 </section>
 
 <section id="sobre" class="section">
 
-<h2 class="title">Quem Somos</h2>
+<h2 class="titulo">Quem Somos</h2>
 
-<p class="subtitle">
-Representamos os trabalhadores, promovendo a participação,
-o diálogo e a transparência através de uma comunicação próxima e construtiva.
+<p class="subtitulo">
+A Comissão de Trabalhadores promove a representação dos trabalhadores,
+reforçando a comunicação, a transparência e a participação ativa na vida da organização.
 </p>
 
-<div class="about">
+<div class="sobre">
 
-<div class="about-image">
-<img src="hero-mosaico.jpg" alt="">
-</div>
+<img src="hero.jpg" alt="Azulejos e ambiente cerâmico">
 
-<div class="about-text">
+<div>
 
-<h3>Ao lado de cada trabalhador</h3>
-
-<p>
-A Comissão de Trabalhadores existe para representar os interesses coletivos,
-facilitar o diálogo e contribuir para um ambiente de trabalho mais participativo.
-</p>
+<h3 style="color:#163758;font-size:2rem;margin-bottom:20px;">
+Ao lado de cada trabalhador
+</h3>
 
 <p>
-Acreditamos que a informação, a transparência e a participação são pilares
-fundamentais para construir o futuro em conjunto.
+Defendemos os interesses coletivos dos trabalhadores, incentivando a participação,
+o diálogo construtivo e a melhoria contínua do ambiente de trabalho.
 </p>
 
 </div>
@@ -324,84 +303,28 @@ fundamentais para construir o futuro em conjunto.
 
 <section id="pilares" class="section">
 
-<h2 class="title">Os Nossos Pilares</h2>
+<h2 class="titulo">Os Nossos Pilares</h2>
 
-<p class="subtitle">
-Conheça as principais áreas de atuação da Comissão.
-</p>
-
-<div class="pillars">
+<div class="cards">
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200">
-
-<div class="card-content">
-
-<h3>⚖ Direitos Laborais</h3>
-
-<p>
-Legislação laboral, acordos e direitos dos trabalhadores.
-</p>
-
-<a href="#" class="btn-small">Saber Mais</a>
-
-</div>
-
+<h3>⚖️ Direitos Laborais</h3>
+<p>Informação sobre legislação laboral, regulamentos e acordos aplicáveis.</p>
 </div>
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=1200">
-
-<div class="card-content">
-
 <h3>🦺 Segurança e Saúde</h3>
-
-<p>
-Acompanhamento das condições de trabalho e bem‑estar.
-</p>
-
-<a href="#" class="btn-small">Detalhes</a>
-
-</div>
-
+<p>Promoção da prevenção, segurança e bem-estar no trabalho.</p>
 </div>
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200">
-
-<div class="card-content">
-
 <h3>🤝 Representação</h3>
-
-<p>
-Ligação entre trabalhadores e organização.
-</p>
-
-<a href="#" class="btn-small">Conhecer</a>
-
-</div>
-
+<p>Ligação permanente entre trabalhadores e organização.</p>
 </div>
 
 <div class="card">
-
-<img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200">
-
-<div class="card-content">
-
-<h3>📢 Comunicados</h3>
-
-<p>
-Informações oficiais, reuniões e atualizações.
-</p>
-
-<a href="#" class="btn-small">Consultar</a>
-
-</div>
-
+<h3>📢 Comunicação</h3>
+<p>Divulgação de comunicados, notícias e informações relevantes.</p>
 </div>
 
 </div>
@@ -410,50 +333,42 @@ Informações oficiais, reuniões e atualizações.
 
 <section id="noticias" class="section news">
 
-<h2 class="title">Últimas Atualizações</h2>
+<h2 class="titulo">Últimos Comunicados</h2>
 
-<div class="news-grid">
-
-<div class="news-item">
-<h3>Portal em desenvolvimento</h3>
-<p>Novas funcionalidades serão disponibilizadas brevemente.</p>
+<div class="news-box">
+<h3>Portal Online</h3>
+<p>O novo portal da Comissão de Trabalhadores encontra-se em desenvolvimento contínuo.</p>
 </div>
 
-<div class="news-item">
-<h3>Área documental</h3>
-<p>Em breve estarão disponíveis atas, regulamentos e documentação.</p>
+<div class="news-box">
+<h3>Área Documental</h3>
+<p>Brevemente estarão disponíveis atas, regulamentos e documentos para consulta.</p>
 </div>
 
-<div class="news-item">
-<h3>Sugestões dos trabalhadores</h3>
-<p>Será criado um formulário dedicado à participação ativa.</p>
-</div>
-
+<div class="news-box">
+<h3>Participação</h3>
+<p>Serão disponibilizados formulários para sugestões e participação dos trabalhadores.</p>
 </div>
 
 </section>
 
-<section id="contactos" class="section contact">
+<section id="contactos" class="section contactos">
 
 <h2>Contactos</h2>
 
-<div class="contact-info">
-
-📧 Email da Comissão<br>
-📅 Atendimento mediante agendamento<br>
-💡 Canal de sugestões em breve
-
-</div>
+<p>📧 Email da Comissão</p>
+<p>📄 Formulário de Sugestões (em breve)</p>
+<p>📅 Atendimento mediante agendamento</p>
 
 </section>
 
 <footer>
 
-<p><strong>Portal dos Trabalhadores</strong></p>
+<p><strong>CT CINCA</strong></p>
 
 <p>Informação • Transparência • Participação</p>
 
-<p>© 2026</p>
+<p>© 2026 Comissão de Trabalhadores</p>
 
 </footer>
 
