@@ -9,252 +9,177 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-font-family:'Segoe UI',sans-serif;
-color:#333;
-background:#fff;
-line-height:1.6;
+    font-family:"Segoe UI",sans-serif;
+    background:#fff;
+    color:#333;
 }
 
 header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:1000;
-padding:20px 6%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,25,50,0.85);
-backdrop-filter:blur(8px);
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px;
+    background:#20384f;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 40px;
+    z-index:1000;
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:15px;
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 
 .logo img{
-height:60px;
-background:white;
-padding:5px;
-border-radius:8px;
+    height:50px;
+    border-radius:6px;
 }
 
 .logo span{
-color:white;
-font-weight:700;
-font-size:1.1rem;
-}
-
-nav{
-display:flex;
-gap:25px;
+    color:white;
+    font-size:1.2rem;
+    font-weight:600;
 }
 
 nav a{
-color:white;
-text-decoration:none;
-font-weight:600;
-font-size:0.95rem;
-transition:.3s;
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:600;
 }
 
 nav a:hover{
-color:#7fc8ff;
+    color:#8cc8ff;
 }
 
 .hero{
-height:100vh;
-background:url('hero-mosaico.jpg');
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-display:flex;
-align-items:flex-end;
-justify-content:center;
-padding:50px;
+    margin-top:80px;
+    height:calc(100vh - 80px);
+    overflow:hidden;
 }
 
-.hero-btn{
-background:#003366;
-color:white;
-padding:16px 35px;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
-transition:.3s;
-}
-
-.hero-btn:hover{
-background:#0059b3;
-transform:translateY(-2px);
+.hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
 .section{
-padding:90px 10%;
+    padding:80px 10%;
 }
 
 .title{
-text-align:center;
-font-size:2.5rem;
-color:#003366;
-margin-bottom:20px;
-}
-
-.subtitle{
-text-align:center;
-max-width:850px;
-margin:auto;
-color:#666;
-margin-bottom:60px;
+    text-align:center;
+    color:#003366;
+    font-size:2.5rem;
+    margin-bottom:30px;
 }
 
 .about{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
-align-items:center;
+    max-width:1000px;
+    margin:auto;
+    text-align:center;
+    font-size:1.1rem;
+    line-height:1.8;
 }
 
-.about-image img{
-width:100%;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,.15);
-}
-
-.about-text h3{
-font-size:2rem;
-margin-bottom:20px;
-color:#003366;
-}
-
-.about-text p{
-margin-bottom:15px;
-}
-
-.pillars{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-margin-top:40px;
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
 }
 
 .card{
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
-transition:.3s;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
-.card:hover{
-transform:translateY(-6px);
-}
-
-.card img{
-width:100%;
-height:200px;
-object-fit:cover;
-}
-
-.card-content{
-padding:25px;
-}
-
-.card-content h3{
-color:#003366;
-margin-bottom:10px;
-}
-
-.btn-small{
-display:inline-block;
-margin-top:15px;
-padding:10px 18px;
-background:#4aa7d8;
-color:white;
-text-decoration:none;
-border-radius:6px;
+.card h3{
+    color:#003366;
+    margin-bottom:15px;
 }
 
 .news{
-background:#f6f8fb;
-}
-
-.news-grid{
-display:grid;
-gap:20px;
+    background:#f5f7fa;
 }
 
 .news-item{
-background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,.06);
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
 .contact{
-background:#003366;
-color:white;
-text-align:center;
+    background:#003366;
+    color:white;
+    text-align:center;
 }
 
-.contact h2{
-margin-bottom:20px;
-}
-
-.contact-info{
-font-size:1.1rem;
-line-height:2;
+.contact p{
+    margin:10px 0;
 }
 
 footer{
-background:#001f3d;
-color:white;
-text-align:center;
-padding:30px;
+    background:#001f3d;
+    color:white;
+    text-align:center;
+    padding:30px;
 }
 
 footer p{
-margin:8px 0;
+    margin:5px 0;
 }
 
-@media(max-width:900px){
+@media(max-width:768px){
 
-header{
-flex-direction:column;
-gap:15px;
-}
+    header{
+        flex-direction:column;
+        height:auto;
+        padding:15px;
+    }
 
-nav{
-flex-wrap:wrap;
-justify-content:center;
-}
+    nav{
+        margin-top:10px;
+    }
 
-.about{
-grid-template-columns:1fr;
-}
+    nav a{
+        display:block;
+        margin:8px 0;
+        text-align:center;
+    }
 
-.title{
-font-size:2rem;
-}
+    .hero{
+        margin-top:140px;
+        height:auto;
+    }
 
-.hero{
-height:70vh;
-}
+    .hero img{
+        height:auto;
+    }
 
+    .title{
+        font-size:2rem;
+    }
 }
 
 </style>
@@ -264,198 +189,60 @@ height:70vh;
 
 <header>
 
-<div class="logo">
-<img src="Designer.png" alt="Logo">
-<span>Portal dos Trabalhadores</span>
-</div>
+    <div class="logo">
+        <img src="Designer.png" alt="Logo">
+        <span>Portal dos Trabalhadores</span>
+    </div>
 
-<nav>
-<a href="#">Home</a>
-<a href="#sobre">Sobre Nós</a>
-<a href="#pilares">Pilares</a>
-<a href="#noticias">Comunicados</a>
-<a href="#contactos">Contactos</a>
-</nav>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#sobre">Sobre Nós</a>
+        <a href="#pilares">Pilares</a>
+        <a href="#noticias">Comunicados</a>
+        <a href="#contactos">Contactos</a>
+    </nav>
 
 </header>
 
-<section class="hero">
-
-<a href="#sobre" class="hero-btn">
-Entrar no Portal
-</a>
-
+<section id="home" class="hero">
+    <img src="Designer.png" alt="Portal dos Trabalhadores">
 </section>
 
 <section id="sobre" class="section">
 
-<h2 class="title">Quem Somos</h2>
+    <h2 class="title">Quem Somos</h2>
 
-<p class="subtitle">
-Representamos os trabalhadores, promovendo a participação,
-o diálogo e a transparência através de uma comunicação próxima e construtiva.
-</p>
+    <div class="about">
+        <p>
+            A Comissão de Trabalhadores promove a informação,
+            a participação e a transparência, reforçando o diálogo
+            entre trabalhadores e organização.
+        </p>
 
-<div class="about">
+        <br>
 
-<div class="about-image">
-<img src="hero-mosaico.jpg" alt="">
-</div>
-
-<div class="about-text">
-
-<h3>Ao lado de cada trabalhador</h3>
-
-<p>
-A Comissão de Trabalhadores existe para representar os interesses coletivos,
-facilitar o diálogo e contribuir para um ambiente de trabalho mais participativo.
-</p>
-
-<p>
-Acreditamos que a informação, a transparência e a participação são pilares
-fundamentais para construir o futuro em conjunto.
-</p>
-
-</div>
-
-</div>
+        <p>
+            Este portal reúne comunicados, documentos, agenda,
+            informações úteis e canais de participação.
+        </p>
+    </div>
 
 </section>
 
 <section id="pilares" class="section">
 
-<h2 class="title">Os Nossos Pilares</h2>
+    <h2 class="title">Os Nossos Pilares</h2>
 
-<p class="subtitle">
-Conheça as principais áreas de atuação da Comissão.
-</p>
+    <div class="cards">
 
-<div class="pillars">
+        <div class="card">
+            <h3>⚖️ Direitos Laborais</h3>
+            <p>Informação sobre legislação laboral e direitos dos trabalhadores.</p>
+        </div>
 
-<div class="card">
+        <div class="card">
+            <h3>🦺 Segurança e Saúde</h3>
+            <p>Promoção da segurança, saúde e bem-estar no trabalho.</p>
+        </div>
 
-<img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200">
-
-<div class="card-content">
-
-<h3>⚖ Direitos Laborais</h3>
-
-<p>
-Legislação laboral, acordos e direitos dos trabalhadores.
-</p>
-
-<a href="#" class="btn-small">Saber Mais</a>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=1200">
-
-<div class="card-content">
-
-<h3>🦺 Segurança e Saúde</h3>
-
-<p>
-Acompanhamento das condições de trabalho e bem‑estar.
-</p>
-
-<a href="#" class="btn-small">Detalhes</a>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200">
-
-<div class="card-content">
-
-<h3>🤝 Representação</h3>
-
-<p>
-Ligação entre trabalhadores e organização.
-</p>
-
-<a href="#" class="btn-small">Conhecer</a>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200">
-
-<div class="card-content">
-
-<h3>📢 Comunicados</h3>
-
-<p>
-Informações oficiais, reuniões e atualizações.
-</p>
-
-<a href="#" class="btn-small">Consultar</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="noticias" class="section news">
-
-<h2 class="title">Últimas Atualizações</h2>
-
-<div class="news-grid">
-
-<div class="news-item">
-<h3>Portal em desenvolvimento</h3>
-<p>Novas funcionalidades serão disponibilizadas brevemente.</p>
-</div>
-
-<div class="news-item">
-<h3>Área documental</h3>
-<p>Em breve estarão disponíveis atas, regulamentos e documentação.</p>
-</div>
-
-<div class="news-item">
-<h3>Sugestões dos trabalhadores</h3>
-<p>Será criado um formulário dedicado à participação ativa.</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="contactos" class="section contact">
-
-<h2>Contactos</h2>
-
-<div class="contact-info">
-
-📧 Email da Comissão<br>
-📅 Atendimento mediante agendamento<br>
-💡 Canal de sugestões em breve
-
-</div>
-
-</section>
-
-<footer>
-
-<p><strong>Portal dos Trabalhadores</strong></p>
-
-<p>Informação • Transparência • Participação</p>
-
-<p>© 2026</p>
-
-</footer>
-
-</body>
-</html>
+        <div class
