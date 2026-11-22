@@ -1,376 +1,557 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CT CINCA | Comissão de Trabalhadores</title>
-
-<style>
+/* =========================
+   CT CINCA - STYLE.CSS
+   ========================= */
 
 :root{
---azul:#163758;
---azul-claro:#2f7dc5;
---branco:#ffffff;
---cinza:#f4f6f8;
+    --primary:#003b7a;
+    --primary-light:#0056b3;
+    --secondary:#f5f7fa;
+    --text:#222;
+    --white:#ffffff;
+    --success:#198754;
+    --danger:#dc3545;
+    --shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
+/* ===== MODO ESCURO ===== */
+
+@media (prefers-color-scheme: dark){
+
+:root{
+    --primary:#4d94ff;
+    --secondary:#1b1b1b;
+    --text:#f0f0f0;
+    --white:#252525;
+}
+
+}
+
+/* ===== RESET ===== */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-font-family:'Segoe UI',sans-serif;
-color:#333;
-background:white;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#fff;
+    color:var(--text);
+    line-height:1.6;
 }
 
+/* ===== HEADER ===== */
+
 header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:1000;
-padding:15px 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(22,55,88,.95);
-backdrop-filter:blur(10px);
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(0,40,80,.75),
+        rgba(0,40,80,.75)
+    ),
+    url("images/azulejos-cinca.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    color:white;
+}
+
+/* ===== MENU ===== */
+
+.navbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:25px 8%;
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    font-size:1.4rem;
+
+    font-weight:700;
 }
 
 .logo img{
-height:60px;
+    height:60px;
 }
 
 .menu{
-display:flex;
-gap:30px;
+
+    display:flex;
+
+    gap:25px;
+
+    list-style:none;
 }
 
 .menu a{
-color:white;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.3s;
 }
 
 .menu a:hover{
-color:#8ec5ff;
+    color:#d9e8ff;
 }
+
+/* ===== HERO ===== */
 
 .hero{
-height:100vh;
 
-background:
-linear-gradient(
-rgba(22,55,88,.40),
-rgba(22,55,88,.50)
-),
-url('hero.jpg.png');
+    min-height:85vh;
 
-background-size:cover;
-background-position:center;
+    display:flex;
 
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:30px;
 }
 
-.hero-content{
-max-width:900px;
-color:white;
-padding:20px;
+.hero h1{
+
+    font-size:4rem;
+
+    margin-bottom:20px;
 }
 
-.hero-content h1{
-font-size:4rem;
-margin-bottom:20px;
-text-shadow:2px 2px 12px rgba(0,0,0,.3);
+.hero p{
+
+    font-size:1.2rem;
+
+    margin-bottom:30px;
 }
 
-.hero-content p{
-font-size:1.4rem;
-margin-bottom:35px;
+.btn{
+
+    display:inline-block;
+
+    padding:15px 30px;
+
+    background:white;
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    transition:.3s;
 }
 
-.botao{
-display:inline-block;
-padding:16px 35px;
-background:white;
-color:var(--azul);
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-transition:.3s;
+.btn:hover{
+
+    background:#eaeaea;
 }
 
-.botao:hover{
-transform:translateY(-3px);
-}
+/* ===== SECÇÕES ===== */
 
 .section{
-padding:90px 10%;
+
+    padding:80px 10%;
 }
 
-.titulo{
-text-align:center;
-font-size:2.5rem;
-color:var(--azul);
-margin-bottom:25px;
+.section h2{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+    color:var(--primary);
 }
 
-.subtitulo{
-text-align:center;
-max-width:850px;
-margin:auto;
-margin-bottom:60px;
-line-height:1.8;
-}
-
-.sobre{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
-align-items:center;
-}
-
-.sobre img{
-width:100%;
-border-radius:15px;
-box-shadow:0 15px 30px rgba(0,0,0,.15);
-}
+/* ===== CARDS ===== */
 
 .cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+    padding:70px 10%;
 }
 
 .card{
-background:white;
-padding:30px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-transition:.3s;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-6px);
+
+    transform:translateY(-8px);
 }
 
 .card h3{
-margin-bottom:15px;
-color:var(--azul);
+
+    margin-bottom:15px;
+
+    color:var(--primary);
 }
+
+/* ===== NOTÍCIAS ===== */
 
 .news{
-background:var(--cinza);
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap:25px;
 }
 
-.news-box{
-background:white;
-padding:25px;
-margin-bottom:20px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
+.news article{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
 }
 
-.contactos{
-background:var(--azul);
-color:white;
-text-align:center;
+.news h3{
+
+    color:var(--primary);
+
+    margin-bottom:15px;
 }
 
-.contactos p{
-margin:10px 0;
-font-size:1.1rem;
+/* ===== DOCUMENTOS ===== */
+
+.documentos{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
 }
+
+.documentos a{
+
+    padding:16px;
+
+    background:white;
+
+    border-radius:10px;
+
+    box-shadow:var(--shadow);
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+.documentos a:hover{
+
+    background:#eef5ff;
+}
+
+/* ===== FORMULÁRIO ===== */
+
+form{
+
+    max-width:700px;
+
+    margin:auto;
+}
+
+.field{
+
+    margin-bottom:20px;
+}
+
+input,
+textarea,
+select{
+
+    width:100%;
+
+    padding:15px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:16px;
+}
+
+textarea{
+    resize:vertical;
+}
+
+.error-message{
+
+    color:var(--danger);
+
+    font-size:14px;
+
+    display:block;
+
+    margin-top:5px;
+
+    min-height:18px;
+}
+
+.input-error{
+    border:2px solid var(--danger);
+}
+
+.input-success{
+    border:2px solid var(--success);
+}
+
+#contador{
+
+    display:block;
+
+    margin-top:8px;
+
+    text-align:right;
+
+    color:#666;
+}
+
+.consentimento{
+
+    margin-bottom:25px;
+}
+
+.consentimento input{
+
+    width:auto;
+
+    margin-right:8px;
+}
+
+.consentimento a{
+
+    color:var(--primary);
+
+    text-decoration:none;
+}
+
+/* ===== BOTÃO ===== */
+
+button{
+
+    width:100%;
+
+    border:none;
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:16px;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+
+    background:var(--primary-light);
+}
+
+button:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+}
+
+/* ===== PÁGINA OBRIGADO ===== */
+
+.simple-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+}
+
+.success-box{
+
+    background:white;
+
+    max-width:650px;
+
+    padding:50px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+}
+
+.success-box h1{
+
+    color:var(--success);
+
+    margin-bottom:20px;
+}
+
+/* ===== PRIVACIDADE ===== */
+
+.legal-page{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:50px 25px;
+}
+
+.legal-page h1{
+
+    color:var(--primary);
+
+    margin-bottom:25px;
+}
+
+.legal-page h2{
+
+    color:var(--primary);
+
+    margin-top:40px;
+
+    margin-bottom:15px;
+}
+
+.legal-page ul{
+
+    padding-left:20px;
+}
+
+/* ===== FOOTER ===== */
 
 footer{
-background:#0e2438;
-color:white;
-text-align:center;
-padding:30px;
+
+    background:#001d3d;
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
 }
 
-footer p{
-margin:6px 0;
+footer a{
+
+    color:white;
+
+    text-decoration:none;
 }
 
-@media(max-width:900px){
+footer a:hover{
 
-header{
-flex-direction:column;
-padding:15px;
+    text-decoration:underline;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+.navbar{
+
+    flex-direction:column;
+
+    gap:20px;
 }
 
 .menu{
-margin-top:15px;
-flex-wrap:wrap;
-justify-content:center;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
 }
 
-.hero-content h1{
-font-size:2.5rem;
+.hero h1{
+
+    font-size:2.6rem;
 }
 
-.hero-content p{
-font-size:1.1rem;
+.hero p{
+
+    font-size:1rem;
 }
 
-.sobre{
-grid-template-columns:1fr;
+.cards{
+
+    padding:40px 5%;
+}
+
+.section{
+
+    padding:60px 5%;
+}
+
+.logo{
+
+    flex-direction:column;
+}
+
+.logo img{
+
+    height:50px;
 }
 
 }
-
-</style>
-</head>
-
-<body>
-
-<header>
-
-<div class="logo">
-<img src="Designer.png" alt="CT CINCA">
-</div>
-
-<nav class="menu">
-<a href="#inicio">Início</a>
-<a href="#sobre">Comissão</a>
-<a href="#pilares">Pilares</a>
-<a href="#noticias">Comunicados</a>
-<a href="#contactos">Contactos</a>
-</nav>
-
-</header>
-
-<section id="inicio" class="hero">
-
-<div class="hero-content">
-
-<h1>Comissão de Trabalhadores</h1>
-
-<p>
-Informação • Transparência • Participação
-</p>
-
-<a href="#sobre" class="botao">
-Conhecer a Comissão
-</a>
-
-</div>
-
-</section>
-
-<section id="sobre" class="section">
-
-<h2 class="titulo">Quem Somos</h2>
-
-<p class="subtitulo">
-A Comissão de Trabalhadores promove a representação dos trabalhadores,
-reforçando a comunicação, a transparência e a participação ativa na vida da organização.
-</p>
-
-<div class="sobre">
-
-<img src="hero.jpg" alt="Azulejos e ambiente cerâmico">
-
-<div>
-
-<h3 style="color:#163758;font-size:2rem;margin-bottom:20px;">
-Ao lado de cada trabalhador
-</h3>
-
-<p>
-Defendemos os interesses coletivos dos trabalhadores, incentivando a participação,
-o diálogo construtivo e a melhoria contínua do ambiente de trabalho.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="pilares" class="section">
-
-<h2 class="titulo">Os Nossos Pilares</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>⚖️ Direitos Laborais</h3>
-<p>Informação sobre legislação laboral, regulamentos e acordos aplicáveis.</p>
-</div>
-
-<div class="card">
-<h3>🦺 Segurança e Saúde</h3>
-<p>Promoção da prevenção, segurança e bem-estar no trabalho.</p>
-</div>
-
-<div class="card">
-<h3>🤝 Representação</h3>
-<p>Ligação permanente entre trabalhadores e organização.</p>
-</div>
-
-<div class="card">
-<h3>📢 Comunicação</h3>
-<p>Divulgação de comunicados, notícias e informações relevantes.</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="noticias" class="section news">
-
-<h2 class="titulo">Últimos Comunicados</h2>
-
-<div class="news-box">
-<h3>Portal Online</h3>
-<p>O novo portal da Comissão de Trabalhadores encontra-se em desenvolvimento contínuo.</p>
-</div>
-
-<div class="news-box">
-<h3>Área Documental</h3>
-<p>Brevemente estarão disponíveis atas, regulamentos e documentos para consulta.</p>
-</div>
-
-<div class="news-box">
-<h3>Participação</h3>
-<p>Serão disponibilizados formulários para sugestões e participação dos trabalhadores.</p>
-</div>
-
-</section>
-
-<section id="contactos" class="section contactos">
-
-<h2>Contactos</h2>
-
-<p>📧 Email da Comissão</p>
-<p>📄 Formulário de Sugestões (em breve)</p>
-<p>📅 Atendimento mediante agendamento</p>
-
-</section>
-
-<footer>
-
-<p><strong>CT CINCA</strong></p>
-
-<p>Informação • Transparência • Participação</p>
-
-<p>© 2026 Comissão de Trabalhadores</p>
-
-</footer>
-
-</body>
-</html>
