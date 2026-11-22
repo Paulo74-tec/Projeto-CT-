@@ -1,1 +1,502 @@
 
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Comissão de Trabalhadores CINCA</title>
+
+<style>
+
+:root{
+--azul:#003b7a;
+--azul2:#0056b3;
+--cinza:#f4f6f9;
+--texto:#222;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, sans-serif;
+color:var(--texto);
+line-height:1.6;
+}
+
+header{
+background:linear-gradient(rgba(0,40,80,.75),rgba(0,40,80,.75)),
+url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+min-height:100vh;
+color:white;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+}
+
+.logo{
+font-size:1.5rem;
+font-weight:bold;
+}
+
+.menu{
+display:flex;
+gap:20px;
+list-style:none;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+}
+
+.hero{
+height:85vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:4rem;
+margin-bottom:15px;
+}
+
+.hero p{
+margin-bottom:25px;
+font-size:1.2rem;
+}
+
+.btn{
+display:inline-block;
+background:white;
+color:var(--azul);
+padding:15px 25px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.section{
+padding:80px 10%;
+}
+
+.section h2{
+text-align:center;
+margin-bottom:40px;
+color:var(--azul);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:60px 10%;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.news{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.news article{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.documentos{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.documentos a{
+padding:15px;
+background:#eef5ff;
+text-decoration:none;
+color:var(--azul);
+border-radius:8px;
+}
+
+form{
+max-width:700px;
+margin:auto;
+}
+
+.field{
+margin-bottom:20px;
+}
+
+input,
+textarea,
+select{
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+textarea{
+resize:vertical;
+}
+
+button{
+width:100%;
+padding:15px;
+background:var(--azul);
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+
+.error{
+color:red;
+font-size:14px;
+margin-top:5px;
+display:block;
+}
+
+footer{
+background:#001d3d;
+color:white;
+text-align:center;
+padding:30px;
+}
+
+footer a{
+color:white;
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.7);
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.modal-content{
+background:white;
+padding:30px;
+max-width:700px;
+max-height:80vh;
+overflow:auto;
+border-radius:12px;
+}
+
+.dark{
+background:#121212;
+color:white;
+}
+
+.dark .card,
+.dark article{
+background:#222;
+color:white;
+}
+
+.theme-btn{
+position:fixed;
+right:20px;
+bottom:20px;
+width:auto;
+padding:12px 20px;
+}
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:15px;
+}
+
+.menu{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero h1{
+font-size:2.5rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+CT CINCA
+</div>
+
+<ul class="menu">
+<li><a href="#inicio">Início</a></li>
+<li><a href="#noticias">Notícias</a></li>
+<li><a href="#documentos">Documentos</a></li>
+<li><a href="#contactos">Contacto</a></li>
+</ul>
+
+</nav>
+
+<div class="hero">
+
+<div>
+
+<h1>Portal dos Trabalhadores</h1>
+
+<p>
+Informação • Transparência • Participação
+</p>
+
+<a href="#contactos" class="btn">
+Enviar Sugestão
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+<section class="cards">
+
+<div class="card">
+<h3>📢 Comunicados</h3>
+<p>Informação da Comissão.</p>
+</div>
+
+<div class="card">
+<h3>📁 Documentos</h3>
+<p>Atas e regulamentos.</p>
+</div>
+
+<div class="card">
+<h3>📅 Agenda</h3>
+<p>Eventos e reuniões.</p>
+</div>
+
+<div class="card">
+<h3>👥 Trabalhadores</h3>
+<p>Representação e apoio.</p>
+</div>
+
+</section>
+
+<section id="noticias" class="section">
+
+<h2>Últimas Notícias</h2>
+
+<div class="news">
+
+<article>
+<h3>Reunião Geral</h3>
+<p>Convocatória para todos os trabalhadores.</p>
+</article>
+
+<article>
+<h3>Novo Comunicado</h3>
+<p>Atualização de informações da Comissão.</p>
+</article>
+
+<article>
+<h3>Projetos Futuros</h3>
+<p>Objetivos e iniciativas para o próximo ano.</p>
+</article>
+
+</div>
+
+</section>
+
+<section id="documentos" class="section">
+
+<h2>Documentos</h2>
+
+<div class="documentos">
+
+<a href="#">📄 Ata Janeiro</a>
+<a href="#">📄 Regulamento</a>
+<a href="#">📄 Comunicado Oficial</a>
+
+</div>
+
+</section>
+
+<section id="contactos" class="section">
+
+<h2>Formulário de Sugestões</h2>
+
+<form id="formulario">
+
+<div class="field">
+<input type="text" id="nome" placeholder="Nome">
+<span id="erroNome" class="error"></span>
+</div>
+
+<div class="field">
+<input type="email" id="email" placeholder="Email">
+<span id="erroEmail" class="error"></span>
+</div>
+
+<div class="field">
+<textarea id="mensagem" rows="6" placeholder="Mensagem"></textarea>
+<span id="erroMensagem" class="error"></span>
+</div>
+
+<label>
+<input type="checkbox" id="rgpd">
+Li e aceito a Política de Privacidade
+</label>
+
+<br><br>
+
+<button type="submit">
+Enviar Sugestão
+</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<p>
+© Comissão de Trabalhadores CINCA
+</p>
+
+<p>
+<a href="#" onclick="abrirPrivacidade()">
+Política de Privacidade
+</a>
+</p>
+
+</footer>
+
+<button class="theme-btn" onclick="alternarTema()">
+🌙 Tema
+</button>
+
+<div class="modal" id="modalPrivacidade">
+
+<div class="modal-content">
+
+<h2>Política de Privacidade</h2>
+
+<p>
+Os dados enviados através deste formulário
+serão utilizados apenas para responder a
+pedidos, sugestões ou esclarecimentos.
+</p>
+
+<p>
+O utilizador pode solicitar a remoção dos
+seus dados a qualquer momento.
+</p>
+
+<br>
+
+<button onclick="fecharPrivacidade()">
+Fechar
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function abrirPrivacidade(){
+document.getElementById("modalPrivacidade").style.display="flex";
+}
+
+function fecharPrivacidade(){
+document.getElementById("modalPrivacidade").style.display="none";
+}
+
+function alternarTema(){
+document.body.classList.toggle("dark");
+}
+
+document
+.getElementById("formulario")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let valido=true;
+
+document.getElementById("erroNome").textContent="";
+document.getElementById("erroEmail").textContent="";
+document.getElementById("erroMensagem").textContent="";
+
+const nome=document.getElementById("nome").value.trim();
+const email=document.getElementById("email").value.trim();
+const mensagem=document.getElementById("mensagem").value.trim();
+const rgpd=document.getElementById("rgpd").checked;
+
+if(nome.length<3){
+document.getElementById("erroNome").textContent="Nome inválido";
+valido=false;
+}
+
+const regex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if(!regex.test(email)){
+document.getElementById("erroEmail").textContent="Email inválido";
+valido=false;
+}
+
+if(mensagem.length<10){
+document.getElementById("erroMensagem").textContent="Mensagem demasiado curta";
+valido=false;
+}
+
+if(!rgpd){
+alert("Tem de aceitar a Política de Privacidade.");
+valido=false;
+}
+
+if(valido){
+
+alert("✅ Sugestão enviada com sucesso!");
+
+document.getElementById("formulario").reset();
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
