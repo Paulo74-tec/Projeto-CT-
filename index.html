@@ -4,18 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Comissão de Trabalhadores CINCA</title>
+<title>CT CINCA</title>
 
 <style>
-
-:root{
-    --azul:#003B7A;
-    --azul-claro:#005FAF;
-    --branco:#FFFFFF;
-    --cinza:#F5F7FA;
-    --ouro:#D4A017;
-    --texto:#222;
-}
 
 *{
     margin:0;
@@ -28,43 +19,37 @@ html{
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    color:var(--texto);
-    background:#fff;
-    line-height:1.6;
-}
-
-body.dark{
-    background:#121212;
-    color:#fff;
+    font-family:Arial, sans-serif;
 }
 
 header{
-    min-height:100vh;
-    background-image:url("images/cinca-azulejos.jpg.jpg");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    color:white;
+    height:100vh;
+    background:url("cinca-azulejos.jpg.jpg") center center/cover no-repeat;
+    position:relative;
 }
 
 .navbar{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 40px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 8%;
-    background:rgba(0,0,0,.25);
+    background:rgba(0,0,0,0.25);
 }
 
 .logo{
-    font-size:1.8rem;
+    color:white;
+    font-size:32px;
     font-weight:bold;
 }
 
 .menu{
     display:flex;
+    gap:30px;
     list-style:none;
-    gap:20px;
 }
 
 .menu a{
@@ -73,21 +58,8 @@ header{
     font-weight:bold;
 }
 
-.menu a:hover{
-    color:var(--ouro);
-}
-
-.menu-toggle{
-    display:none;
-    font-size:30px;
-    background:none;
-    border:none;
-    color:white;
-    cursor:pointer;
-}
-
 .hero{
-    height:85vh;
+    height:100%;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -96,37 +68,31 @@ header{
 }
 
 .hero-content{
-    background:rgba(0,0,0,.35);
-    backdrop-filter:blur(4px);
-    padding:40px;
+    background:rgba(0,0,0,0.30);
+    padding:50px;
     border-radius:20px;
+    color:white;
     max-width:700px;
 }
 
 .hero h1{
     font-size:4rem;
     margin-bottom:20px;
-    text-shadow:0 2px 10px rgba(0,0,0,.8);
 }
 
 .hero p{
+    font-size:1.3rem;
     margin-bottom:30px;
-    font-size:1.2rem;
 }
 
 .btn{
     display:inline-block;
     padding:15px 30px;
-    background:var(--ouro);
+    background:#d4a017;
     color:white;
     text-decoration:none;
-    font-weight:bold;
     border-radius:8px;
-    transition:.3s;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
+    font-weight:bold;
 }
 
 .section{
@@ -136,11 +102,7 @@ header{
 .section h2{
     text-align:center;
     margin-bottom:40px;
-    color:var(--azul);
-}
-
-.dark .section h2{
-    color:#72b0ff;
+    color:#003b7a;
 }
 
 .sobre{
@@ -149,60 +111,9 @@ header{
     text-align:center;
 }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:25px;
-    margin-top:50px;
-}
-
-.card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.12);
-}
-
-.dark .card{
-    background:#222;
-}
-
-.news{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.news article{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.12);
-}
-
-.dark .news article{
-    background:#222;
-}
-
-.documentos{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-}
-
-.documentos a{
-    padding:15px;
-    border-radius:8px;
-    background:#eef5ff;
-    text-decoration:none;
-    color:var(--azul);
-    font-weight:bold;
-}
-
-.contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
+.contacto{
+    max-width:700px;
+    margin:auto;
 }
 
 input,
@@ -215,92 +126,52 @@ textarea{
 }
 
 button{
+    width:100%;
     padding:15px;
     border:none;
     border-radius:8px;
-    background:var(--azul);
+    background:#003b7a;
     color:white;
-    cursor:pointer;
-}
-
-.success{
-    display:none;
-    margin-top:15px;
-    background:#d4edda;
-    color:#155724;
-    padding:15px;
-    border-radius:8px;
 }
 
 footer{
-    background:#001C3A;
+    background:#003b7a;
     color:white;
     text-align:center;
     padding:30px;
 }
 
-footer a{
-    color:white;
-}
-
-.theme-btn{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:auto;
-    padding:15px 20px;
-    border-radius:50px;
-}
-
-.modal{
+.menu-toggle{
     display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.75);
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
-
-.modal-content{
-    background:white;
-    color:#222;
-    max-width:700px;
-    padding:30px;
-    border-radius:12px;
 }
 
 @media(max-width:768px){
 
 .menu-toggle{
     display:block;
+    background:none;
+    border:none;
+    color:white;
+    font-size:30px;
 }
 
 .menu{
     display:none;
-    flex-direction:column;
+    position:absolute;
+    top:80px;
+    left:0;
     width:100%;
-    margin-top:15px;
+    flex-direction:column;
+    background:#003b7a;
+    padding:20px;
 }
 
 .menu.active{
     display:flex;
 }
 
-.navbar{
-    flex-wrap:wrap;
-}
-
 .hero h1{
-    font-size:2.3rem;
-}
-
-.contact-grid{
-    grid-template-columns:1fr;
-}
-
-.section{
-    padding:60px 20px;
+    font-size:2.5rem;
 }
 
 }
@@ -310,7 +181,7 @@ footer a{
 
 <body>
 
-<header id="inicio">
+<header>
 
 <nav class="navbar">
 
@@ -323,10 +194,7 @@ footer a{
 </button>
 
 <ul class="menu" id="menu">
-<li><a href="#inicio">Início</a></li>
 <li><a href="#sobre">Sobre</a></li>
-<li><a href="#noticias">Notícias</a></li>
-<li><a href="#documentos">Documentos</a></li>
 <li><a href="#contacto">Contacto</a></li>
 </ul>
 
@@ -336,7 +204,9 @@ footer a{
 
 <div class="hero-content">
 
-<h1>Comissão de Trabalhadores CINCA</h1>
+<h1>
+Comissão de Trabalhadores CINCA
+</h1>
 
 <p>
 Informação • Transparência • Participação
@@ -354,79 +224,13 @@ Enviar Sugestão
 
 <section id="sobre" class="section">
 
-<h2>Sobre a Comissão</h2>
+<h2>Sobre</h2>
 
 <div class="sobre">
 
 <p>
-A Comissão de Trabalhadores da CINCA representa os trabalhadores,
-promovendo o diálogo, a participação e a defesa dos seus direitos.
-O seu objetivo é reforçar a comunicação, a transparência e a colaboração
-entre todos os intervenientes da empresa.
+A Comissão de Trabalhadores da CINCA representa os trabalhadores e promove o diálogo, a transparência e a participação na empresa.
 </p>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-<h3>📢 Comunicados</h3>
-<p>Informação oficial da Comissão.</p>
-</div>
-
-<div class="card">
-<h3>📄 Documentos</h3>
-<p>Atas, regulamentos e comunicados.</p>
-</div>
-
-<div class="card">
-<h3>📅 Agenda</h3>
-<p>Reuniões e eventos.</p>
-</div>
-
-<div class="card">
-<h3>✅ Acompanhamento</h3>
-<p>Sugestões e iniciativas em curso.</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="noticias" class="section">
-
-<h2>Últimas Notícias</h2>
-
-<div class="news">
-
-<article>
-<h3>Reunião Geral</h3>
-<p>Convocatória para todos os trabalhadores.</p>
-</article>
-
-<article>
-<h3>Comunicado</h3>
-<p>Atualização das atividades desenvolvidas.</p>
-</article>
-
-<article>
-<h3>Projetos Futuros</h3>
-<p>Objetivos estratégicos para o próximo período.</p>
-</article>
-
-</div>
-
-</section>
-
-<section id="documentos" class="section">
-
-<h2>Documentos</h2>
-
-<div class="documentos">
-
-<a href="#">📄 Ata Janeiro</a>
-<a href="#">📄 Regulamento Interno</a>
-<a href="#">📄 Comunicado Oficial</a>
 
 </div>
 
@@ -436,133 +240,38 @@ entre todos os intervenientes da empresa.
 
 <h2>Contacto</h2>
 
-<div class="contact-grid">
+<div class="contacto">
 
-<div>
+<form>
 
-<h3>Email</h3>
-<p>ct@cinca.pt</p>
+<input type="text" placeholder="Nome">
 
-<br>
+<input type="email" placeholder="Email">
 
-<h3>Localização</h3>
-<p>Instalações CINCA</p>
-
-<br>
-
-<h3>Horário</h3>
-<p>Segunda a Sexta</p>
-
-</div>
-
-<div>
-
-<form id="formulario">
-
-<input type="text" id="nome" placeholder="Nome" required>
-
-<input type="email" id="email" placeholder="Email" required>
-
-<textarea id="mensagem" rows="6"
-placeholder="Mensagem"
-required></textarea>
+<textarea rows="6" placeholder="Mensagem"></textarea>
 
 <button type="submit">
-Enviar Sugestão
+Enviar
 </button>
 
-<div class="success" id="sucesso">
-✅ Sugestão enviada com sucesso.
-</div>
-
 </form>
-
-</div>
 
 </div>
 
 </section>
 
 <footer>
-
-<p>© Comissão de Trabalhadores CINCA</p>
-
-<p>
-<a href="#"
-onclick="abrirPrivacidade();return false;">
-Política de Privacidade
-</a>
-</p>
-
+© Comissão de Trabalhadores CINCA
 </footer>
-
-<button class="theme-btn" onclick="alternarTema()">
-🌙 Tema
-</button>
-
-<div class="modal" id="modalPrivacidade">
-
-<div class="modal-content">
-
-<h2>Política de Privacidade</h2>
-
-<br>
-
-<p>
-Os dados enviados destinam-se exclusivamente ao tratamento das solicitações efetuadas através deste portal.
-</p>
-
-<br>
-
-<p>
-Os dados não serão partilhados com terceiros e poderão ser removidos mediante pedido.
-</p>
-
-<br>
-
-<button onclick="fecharPrivacidade()">
-Fechar
-</button>
-
-</div>
-
-</div>
 
 <script>
 
+const btn=document.getElementById("menuToggle");
 const menu=document.getElementById("menu");
-const menuToggle=document.getElementById("menuToggle");
 
-menuToggle.addEventListener("click",function(){
-    menu.classList.toggle("active");
-});
+btn.addEventListener("click",()=>{
 
-function alternarTema(){
-    document.body.classList.toggle("dark");
-}
-
-function abrirPrivacidade(){
-    document.getElementById("modalPrivacidade").style.display="flex";
-}
-
-function fecharPrivacidade(){
-    document.getElementById("modalPrivacidade").style.display="none";
-}
-
-document.getElementById("formulario")
-.addEventListener("submit",function(e){
-
-e.preventDefault();
-
-document.getElementById("sucesso").style.display="block";
-
-this.reset();
-
-setTimeout(function(){
-
-document.getElementById("sucesso").style.display="none";
-
-},4000);
+menu.classList.toggle("active");
 
 });
 
