@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +9,11 @@
 <style>
 
 :root{
-    --azul:#003b7a;
-    --azul2:#0056b3;
-    --cinza:#f4f6f9;
+    --azul:#003B7A;
+    --azul-claro:#005FAF;
+    --branco:#FFFFFF;
+    --cinza:#F5F7FA;
+    --ouro:#D4A017;
     --texto:#222;
 }
 
@@ -27,45 +28,24 @@ html{
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:white;
+    font-family:Arial,Helvetica,sans-serif;
     color:var(--texto);
+    background:#fff;
     line-height:1.6;
 }
 
 body.dark{
     background:#121212;
-    color:white;
+    color:#fff;
 }
-  header::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        linear-gradient(
-            rgba(0,0,0,.25),
-            rgba(0,0,0,.25)
-        ),
-        url("images/cinca-azulejos.jpg");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;  
 
 header{
-    position:relative;
     min-height:100vh;
-    overflow:hidden;
+    background-image:url("images/cinca-azulejos.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
     color:white;
-}
-
-
-}
-
-header>*{
-    position:relative;
-    z-index:2;
 }
 
 .navbar{
@@ -73,6 +53,7 @@ header>*{
     justify-content:space-between;
     align-items:center;
     padding:20px 8%;
+    background:rgba(0,0,0,.25);
 }
 
 .logo{
@@ -82,14 +63,27 @@ header>*{
 
 .menu{
     display:flex;
-    gap:20px;
     list-style:none;
+    gap:20px;
 }
 
 .menu a{
     color:white;
     text-decoration:none;
     font-weight:bold;
+}
+
+.menu a:hover{
+    color:var(--ouro);
+}
+
+.menu-toggle{
+    display:none;
+    font-size:30px;
+    background:none;
+    border:none;
+    color:white;
+    cursor:pointer;
 }
 
 .hero{
@@ -101,22 +95,30 @@ header>*{
     padding:20px;
 }
 
+.hero-content{
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(4px);
+    padding:40px;
+    border-radius:20px;
+    max-width:700px;
+}
+
 .hero h1{
     font-size:4rem;
     margin-bottom:20px;
-    text-shadow:0 4px 10px rgba(0,0,0,.4);
+    text-shadow:0 2px 10px rgba(0,0,0,.8);
 }
 
 .hero p{
-    font-size:1.3rem;
     margin-bottom:30px;
+    font-size:1.2rem;
 }
 
 .btn{
     display:inline-block;
     padding:15px 30px;
-    background:white;
-    color:var(--azul);
+    background:var(--ouro);
+    color:white;
     text-decoration:none;
     font-weight:bold;
     border-radius:8px;
@@ -124,25 +126,7 @@ header>*{
 }
 
 .btn:hover{
-    transform:translateY(-3px);
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:25px;
-    padding:70px 10%;
-}
-
-.card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 5px 20px rgba(0,0,0,.1);
-}
-
-.dark .card{
-    background:#222;
+    transform:translateY(-2px);
 }
 
 .section{
@@ -151,18 +135,36 @@ header>*{
 
 .section h2{
     text-align:center;
-    color:var(--azul);
     margin-bottom:40px;
+    color:var(--azul);
 }
 
 .dark .section h2{
-    color:#7cb4ff;
+    color:#72b0ff;
 }
 
 .sobre{
-    text-align:center;
     max-width:900px;
     margin:auto;
+    text-align:center;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+    margin-top:50px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+.dark .card{
+    background:#222;
 }
 
 .news{
@@ -175,10 +177,10 @@ header>*{
     background:white;
     padding:25px;
     border-radius:12px;
-    box-shadow:0 5px 20px rgba(0,0,0,.1);
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
 }
 
-.dark article{
+.dark .news article{
     background:#222;
 }
 
@@ -189,38 +191,27 @@ header>*{
 }
 
 .documentos a{
-    text-decoration:none;
-    background:#eef4ff;
-    color:var(--azul);
     padding:15px;
     border-radius:8px;
-}
-
-form{
-    max-width:700px;
-    margin:auto;
-}
-
-.field{
-    margin-bottom:20px;
-}
-
-label{
-    display:block;
-    margin-bottom:6px;
+    background:#eef5ff;
+    text-decoration:none;
+    color:var(--azul);
     font-weight:bold;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
 }
 
 input,
 textarea{
     width:100%;
     padding:12px;
+    margin-bottom:15px;
     border:1px solid #ccc;
     border-radius:8px;
-}
-
-textarea{
-    resize:vertical;
 }
 
 button{
@@ -230,12 +221,6 @@ button{
     background:var(--azul);
     color:white;
     cursor:pointer;
-    width:100%;
-}
-
-.error{
-    color:red;
-    font-size:14px;
 }
 
 .success{
@@ -248,7 +233,7 @@ button{
 }
 
 footer{
-    background:#001d3d;
+    background:#001C3A;
     color:white;
     text-align:center;
     padding:30px;
@@ -264,48 +249,54 @@ footer a{
     bottom:20px;
     width:auto;
     padding:15px 20px;
+    border-radius:50px;
 }
 
 .modal{
     display:none;
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.7);
+    background:rgba(0,0,0,.75);
     justify-content:center;
     align-items:center;
-    z-index:999;
+    padding:20px;
 }
 
 .modal-content{
     background:white;
-    width:90%;
+    color:#222;
     max-width:700px;
-    border-radius:10px;
     padding:30px;
+    border-radius:12px;
 }
 
 @media(max-width:768px){
 
-.navbar{
-    flex-direction:column;
-    gap:15px;
+.menu-toggle{
+    display:block;
 }
 
 .menu{
+    display:none;
     flex-direction:column;
     width:100%;
+    margin-top:15px;
 }
 
-.menu a{
-    display:block;
-    text-align:center;
-    background:rgba(255,255,255,.15);
-    padding:10px;
-    border-radius:8px;
+.menu.active{
+    display:flex;
+}
+
+.navbar{
+    flex-wrap:wrap;
 }
 
 .hero h1{
-    font-size:2.5rem;
+    font-size:2.3rem;
+}
+
+.contact-grid{
+    grid-template-columns:1fr;
 }
 
 .section{
@@ -327,19 +318,23 @@ footer a{
 🏺 CT CINCA
 </div>
 
-<ul class="menu">
+<button class="menu-toggle" id="menuToggle">
+☰
+</button>
+
+<ul class="menu" id="menu">
 <li><a href="#inicio">Início</a></li>
 <li><a href="#sobre">Sobre</a></li>
 <li><a href="#noticias">Notícias</a></li>
 <li><a href="#documentos">Documentos</a></li>
-<li><a href="#contactos">Contacto</a></li>
+<li><a href="#contacto">Contacto</a></li>
 </ul>
 
 </nav>
 
 <div class="hero">
 
-<div>
+<div class="hero-content">
 
 <h1>Comissão de Trabalhadores CINCA</h1>
 
@@ -347,7 +342,7 @@ footer a{
 Informação • Transparência • Participação
 </p>
 
-<a href="#contactos" class="btn">
+<a href="#contacto" class="btn">
 Enviar Sugestão
 </a>
 
@@ -365,20 +360,18 @@ Enviar Sugestão
 
 <p>
 A Comissão de Trabalhadores da CINCA representa os trabalhadores,
-promovendo o diálogo, a participação e a defesa dos seus direitos,
-contribuindo para um ambiente de trabalho mais transparente,
-colaborativo e sustentável.
+promovendo o diálogo, a participação e a defesa dos seus direitos.
+O seu objetivo é reforçar a comunicação, a transparência e a colaboração
+entre todos os intervenientes da empresa.
 </p>
 
 </div>
 
-</section>
-
-<section class="cards">
+<div class="cards">
 
 <div class="card">
 <h3>📢 Comunicados</h3>
-<p>Informações oficiais da Comissão.</p>
+<p>Informação oficial da Comissão.</p>
 </div>
 
 <div class="card">
@@ -388,12 +381,14 @@ colaborativo e sustentável.
 
 <div class="card">
 <h3>📅 Agenda</h3>
-<p>Eventos e reuniões futuras.</p>
+<p>Reuniões e eventos.</p>
 </div>
 
 <div class="card">
-<h3>✅ Sugestões Tratadas</h3>
-<p>85% concluídas.</p>
+<h3>✅ Acompanhamento</h3>
+<p>Sugestões e iniciativas em curso.</p>
+</div>
+
 </div>
 
 </section>
@@ -410,13 +405,13 @@ colaborativo e sustentável.
 </article>
 
 <article>
-<h3>Novo Comunicado</h3>
-<p>Atualização das iniciativas da Comissão.</p>
+<h3>Comunicado</h3>
+<p>Atualização das atividades desenvolvidas.</p>
 </article>
 
 <article>
 <h3>Projetos Futuros</h3>
-<p>Objetivos estratégicos para o próximo ano.</p>
+<p>Objetivos estratégicos para o próximo período.</p>
 </article>
 
 </div>
@@ -437,46 +432,54 @@ colaborativo e sustentável.
 
 </section>
 
-<section id="contactos" class="section">
+<section id="contacto" class="section">
 
-<h2>Formulário de Sugestões</h2>
+<h2>Contacto</h2>
+
+<div class="contact-grid">
+
+<div>
+
+<h3>Email</h3>
+<p>ct@cinca.pt</p>
+
+<br>
+
+<h3>Localização</h3>
+<p>Instalações CINCA</p>
+
+<br>
+
+<h3>Horário</h3>
+<p>Segunda a Sexta</p>
+
+</div>
+
+<div>
 
 <form id="formulario">
 
-<div class="field">
-<label for="nome">Nome *</label>
-<input type="text" id="nome">
-<span id="erroNome" class="error"></span>
-</div>
+<input type="text" id="nome" placeholder="Nome" required>
 
-<div class="field">
-<label for="email">Email *</label>
-<input type="email" id="email">
-<span id="erroEmail" class="error"></span>
-</div>
+<input type="email" id="email" placeholder="Email" required>
 
-<div class="field">
-<label for="mensagem">Mensagem *</label>
-<textarea id="mensagem" rows="6"></textarea>
-<span id="erroMensagem" class="error"></span>
-</div>
-
-<div class="field">
-<label>
-<input type="checkbox" id="rgpd">
-Aceito a Política de Privacidade e tratamento de dados.
-</label>
-</div>
+<textarea id="mensagem" rows="6"
+placeholder="Mensagem"
+required></textarea>
 
 <button type="submit">
 Enviar Sugestão
 </button>
 
-<div id="sucesso" class="success">
+<div class="success" id="sucesso">
 ✅ Sugestão enviada com sucesso.
 </div>
 
 </form>
+
+</div>
+
+</div>
 
 </section>
 
@@ -485,7 +488,8 @@ Enviar Sugestão
 <p>© Comissão de Trabalhadores CINCA</p>
 
 <p>
-<a href="#" onclick="abrirPrivacidade();return false;">
+<a href="#"
+onclick="abrirPrivacidade();return false;">
 Política de Privacidade
 </a>
 </p>
@@ -493,7 +497,7 @@ Política de Privacidade
 </footer>
 
 <button class="theme-btn" onclick="alternarTema()">
-🌙 Tema Escuro
+🌙 Tema
 </button>
 
 <div class="modal" id="modalPrivacidade">
@@ -505,15 +509,13 @@ Política de Privacidade
 <br>
 
 <p>
-Os dados submetidos através deste formulário destinam-se
-exclusivamente ao tratamento das solicitações apresentadas.
+Os dados enviados destinam-se exclusivamente ao tratamento das solicitações efetuadas através deste portal.
 </p>
 
 <br>
 
 <p>
-Os dados não serão partilhados com terceiros
-e poderão ser eliminados mediante pedido.
+Os dados não serão partilhados com terceiros e poderão ser removidos mediante pedido.
 </p>
 
 <br>
@@ -528,83 +530,29 @@ Fechar
 
 <script>
 
+const menu=document.getElementById("menu");
+const menuToggle=document.getElementById("menuToggle");
+
+menuToggle.addEventListener("click",function(){
+    menu.classList.toggle("active");
+});
+
 function alternarTema(){
-
-document.body.classList.toggle("dark");
-
-const btn=document.querySelector(".theme-btn");
-
-if(document.body.classList.contains("dark")){
-btn.innerHTML="☀️ Tema Claro";
-}else{
-btn.innerHTML="🌙 Tema Escuro";
-}
-
+    document.body.classList.toggle("dark");
 }
 
 function abrirPrivacidade(){
-document.getElementById("modalPrivacidade").style.display="flex";
+    document.getElementById("modalPrivacidade").style.display="flex";
 }
 
 function fecharPrivacidade(){
-document.getElementById("modalPrivacidade").style.display="none";
+    document.getElementById("modalPrivacidade").style.display="none";
 }
-
-window.addEventListener("keydown",function(e){
-
-if(e.key==="Escape"){
-fecharPrivacidade();
-}
-
-});
 
 document.getElementById("formulario")
 .addEventListener("submit",function(e){
 
 e.preventDefault();
-
-let valido=true;
-
-erroNome.textContent="";
-erroEmail.textContent="";
-erroMensagem.textContent="";
-
-const nome=document.getElementById("nome").value.trim();
-const email=document.getElementById("email").value.trim();
-const mensagem=document.getElementById("mensagem").value.trim();
-const rgpd=document.getElementById("rgpd").checked;
-
-if(nome.length<3){
-
-erroNome.textContent="Nome inválido.";
-valido=false;
-
-}
-
-const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-if(!emailRegex.test(email)){
-
-erroEmail.textContent="Email inválido.";
-valido=false;
-
-}
-
-if(mensagem.length<10){
-
-erroMensagem.textContent="Mínimo 10 caracteres.";
-valido=false;
-
-}
-
-if(!rgpd){
-
-alert("Tem de aceitar a Política de Privacidade.");
-valido=false;
-
-}
-
-if(valido){
 
 document.getElementById("sucesso").style.display="block";
 
@@ -614,9 +562,7 @@ setTimeout(function(){
 
 document.getElementById("sucesso").style.display="none";
 
-},5000);
-
-}
+},4000);
 
 });
 
