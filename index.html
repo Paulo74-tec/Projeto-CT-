@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="pt-PT">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,318 +10,293 @@
 <style>
 
 :root{
---azul:#003b7a;
---azul2:#0056b3;
---cinza:#f4f6f9;
---texto:#222;
+    --azul:#003b7a;
+    --azul2:#0056b3;
+    --cinza:#f4f6f9;
+    --texto:#222;
 }
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-font-family:Arial, sans-serif;
-color:var(--texto);
-line-height:1.6;
+    font-family:Arial,sans-serif;
+    line-height:1.6;
+    color:var(--texto);
+    background:white;
+}
+
+body.dark{
+    background:#121212;
+    color:white;
 }
 
 header{
-background:linear-gradient(rgba(0,40,80,.75),rgba(0,40,80,.75)),
-url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80");
-background-size:cover;
-background-position:center;
-min-height:100vh;
-color:white;
+    background:
+    linear-gradient(rgba(0,40,80,.75),rgba(0,40,80,.75)),
+    url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    min-height:100vh;
+    color:white;
 }
 
 .navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
 }
 
 .logo{
-font-size:1.5rem;
-font-weight:bold;
+    font-size:1.6rem;
+    font-weight:bold;
 }
 
 .menu{
-display:flex;
-gap:20px;
-list-style:none;
+    display:flex;
+    list-style:none;
+    gap:20px;
 }
 
 .menu a{
-color:white;
-text-decoration:none;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
 }
 
 .hero{
-height:85vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
+    height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
 }
 
 .hero h1{
-font-size:4rem;
-margin-bottom:15px;
+    font-size:4rem;
+    margin-bottom:20px;
 }
 
 .hero p{
-margin-bottom:25px;
-font-size:1.2rem;
+    margin-bottom:25px;
+    font-size:1.2rem;
 }
 
 .btn{
-display:inline-block;
-background:white;
-color:var(--azul);
-padding:15px 25px;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.section{
-padding:80px 10%;
-}
-
-.section h2{
-text-align:center;
-margin-bottom:40px;
-color:var(--azul);
+    display:inline-block;
+    text-decoration:none;
+    background:white;
+    color:var(--azul);
+    font-weight:bold;
+    padding:15px 25px;
+    border-radius:8px;
 }
 
 .cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-padding:60px 10%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:60px 10%;
 }
 
 .card{
-background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,.1);
-}
-
-.news{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
-
-.news article{
-background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,.1);
-}
-
-.documentos{
-display:flex;
-flex-direction:column;
-gap:15px;
-}
-
-.documentos a{
-padding:15px;
-background:#eef5ff;
-text-decoration:none;
-color:var(--azul);
-border-radius:8px;
-}
-
-form{
-max-width:700px;
-margin:auto;
-}
-
-.field{
-margin-bottom:20px;
-}
-
-input,
-textarea,
-select{
-width:100%;
-padding:12px;
-border:1px solid #ccc;
-border-radius:8px;
-}
-
-textarea{
-resize:vertical;
-}
-
-button{
-width:100%;
-padding:15px;
-background:var(--azul);
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-size:16px;
-}
-
-.error{
-color:red;
-font-size:14px;
-margin-top:5px;
-display:block;
-}
-
-footer{
-background:#001d3d;
-color:white;
-text-align:center;
-padding:30px;
-}
-
-footer a{
-color:white;
-}
-
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.7);
-justify-content:center;
-align-items:center;
-padding:20px;
-}
-
-.modal-content{
-background:white;
-padding:30px;
-max-width:700px;
-max-height:80vh;
-overflow:auto;
-border-radius:12px;
-}
-
-.dark{
-background:#121212;
-color:white;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
 
 .dark .card,
 .dark article{
-background:#222;
-color:white;
+    background:#222;
+    color:white;
+}
+
+.section{
+    padding:80px 10%;
+}
+
+.section h2{
+    text-align:center;
+    color:var(--azul);
+    margin-bottom:40px;
+}
+
+.news{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.news article{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.documentos{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.documentos a{
+    text-decoration:none;
+    padding:15px;
+    background:#eef5ff;
+    color:var(--azul);
+    border-radius:8px;
+}
+
+form{
+    max-width:700px;
+    margin:auto;
+}
+
+.field{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+textarea{
+    resize:vertical;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:8px;
+    background:var(--azul);
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.error{
+    display:block;
+    color:red;
+    margin-top:5px;
+    font-size:14px;
+}
+
+.success{
+    display:none;
+    margin-top:20px;
+    background:#d4edda;
+    color:#155724;
+    border-radius:8px;
+    padding:15px;
+}
+
+footer{
+    background:#001d3d;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+footer a{
+    color:white;
 }
 
 .theme-btn{
-position:fixed;
-right:20px;
-bottom:20px;
-width:auto;
-padding:12px 20px;
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:auto;
+    padding:15px 20px;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.modal-content{
+    background:white;
+    max-width:700px;
+    width:100%;
+    padding:30px;
+    border-radius:12px;
+    max-height:80vh;
+    overflow:auto;
+}
+
+.visually-hidden{
+    position:absolute;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus{
+    outline:3px solid #ffcc00;
+    outline-offset:2px;
 }
 
 @media(max-width:768px){
 
 .navbar{
     flex-direction:column;
-    padding:15px;
-}
-
-.logo{
-    margin-bottom:15px;
 }
 
 .menu{
-    width:100%;
-    display:flex;
     flex-direction:column;
-    gap:10px;
-}
-
-.menu li{
     width:100%;
 }
 
 .menu a{
     display:block;
+    padding:12px;
     text-align:center;
     background:rgba(255,255,255,.15);
-    padding:12px;
     border-radius:8px;
 }
 
-.hero{
-    padding:20px;
-}
-
 .hero h1{
-    font-size:2.2rem;
-    line-height:1.2;
+    font-size:2.3rem;
 }
 
-.hero p{
-    font-size:1rem;
-}
-
-.btn{
-    width:100%;
-    max-width:280px;
-}
-
-.cards{
-    grid-template-columns:1fr;
-    padding:40px 20px;
-}
-
-.card{
-    padding:20px;
-}
-
-.section{
-    padding:50px 20px;
-}
-
+.cards,
 .news{
     grid-template-columns:1fr;
 }
 
-.documentos a{
-    word-break:break-word;
-}
-
-form{
-    width:100%;
-}
-
-input,
-textarea,
-select,
-button{
-    font-size:16px;
-}
-
-.theme-btn{
-    right:15px;
-    bottom:15px;
-}
-}
-
-.menu{
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.hero h1{
-font-size:2.5rem;
+.section{
+    padding:50px 20px;
 }
 
 }
@@ -331,7 +306,7 @@ font-size:2.5rem;
 
 <body>
 
-<header>
+<header id="inicio">
 
 <nav class="navbar">
 
@@ -349,7 +324,6 @@ CT CINCA
 </nav>
 
 <div class="hero">
-
 <div>
 
 <h1>Portal dos Trabalhadores</h1>
@@ -363,7 +337,6 @@ Enviar Sugestão
 </a>
 
 </div>
-
 </div>
 
 </header>
@@ -372,22 +345,22 @@ Enviar Sugestão
 
 <div class="card">
 <h3>📢 Comunicados</h3>
-<p>Informação da Comissão.</p>
+<p>Informações e comunicados oficiais da Comissão.</p>
 </div>
 
 <div class="card">
 <h3>📁 Documentos</h3>
-<p>Atas e regulamentos.</p>
+<p>Atas, regulamentos e informação institucional.</p>
 </div>
 
 <div class="card">
 <h3>📅 Agenda</h3>
-<p>Eventos e reuniões.</p>
+<p>Reuniões, assembleias e eventos.</p>
 </div>
 
 <div class="card">
 <h3>👥 Trabalhadores</h3>
-<p>Representação e apoio.</p>
+<p>Representação e apoio aos trabalhadores.</p>
 </div>
 
 </section>
@@ -405,12 +378,12 @@ Enviar Sugestão
 
 <article>
 <h3>Novo Comunicado</h3>
-<p>Atualização de informações da Comissão.</p>
+<p>Atualização das iniciativas da Comissão.</p>
 </article>
 
 <article>
 <h3>Projetos Futuros</h3>
-<p>Objetivos e iniciativas para o próximo ano.</p>
+<p>Objetivos estratégicos para o próximo ano.</p>
 </article>
 
 </div>
@@ -424,7 +397,7 @@ Enviar Sugestão
 <div class="documentos">
 
 <a href="#">📄 Ata Janeiro</a>
-<a href="#">📄 Regulamento</a>
+<a href="#">📄 Regulamento Interno</a>
 <a href="#">📄 Comunicado Oficial</a>
 
 </div>
@@ -435,33 +408,45 @@ Enviar Sugestão
 
 <h2>Formulário de Sugestões</h2>
 
-<form id="formulario">
+<form id="formulario" novalidate>
 
 <div class="field">
-<input type="text" id="nome" placeholder="Nome">
-<span id="erroNome" class="error"></span>
+<label for="nome">Nome *</label>
+<input type="text" id="nome" required>
+<span id="erroNome" class="error" aria-live="polite"></span>
 </div>
 
 <div class="field">
-<input type="email" id="email" placeholder="Email">
-<span id="erroEmail" class="error"></span>
+<label for="email">Email *</label>
+<input type="email" id="email" required>
+<span id="erroEmail" class="error" aria-live="polite"></span>
 </div>
 
 <div class="field">
-<textarea id="mensagem" rows="6" placeholder="Mensagem"></textarea>
-<span id="erroMensagem" class="error"></span>
+<label for="mensagem">Mensagem *</label>
+<textarea id="mensagem" rows="6" required></textarea>
+<span id="erroMensagem" class="error" aria-live="polite"></span>
 </div>
+
+<div class="field">
 
 <label>
+
 <input type="checkbox" id="rgpd">
-Li e aceito a Política de Privacidade
+
+Li e aceito a Política de Privacidade e o tratamento dos meus dados pessoais nos termos do RGPD.
+
 </label>
 
-<br><br>
+</div>
 
 <button type="submit">
 Enviar Sugestão
 </button>
+
+<div id="sucesso" class="success" aria-live="assertive">
+✅ Sugestão enviada com sucesso.
+</div>
 
 </form>
 
@@ -469,12 +454,10 @@ Enviar Sugestão
 
 <footer>
 
-<p>
-© Comissão de Trabalhadores CINCA
-</p>
+<p>© Comissão de Trabalhadores CINCA</p>
 
 <p>
-<a href="#" onclick="abrirPrivacidade()">
+<a href="#" onclick="abrirPrivacidade();return false;">
 Política de Privacidade
 </a>
 </p>
@@ -482,24 +465,32 @@ Política de Privacidade
 </footer>
 
 <button class="theme-btn" onclick="alternarTema()">
-🌙 Tema
+🌙 Tema Escuro
 </button>
 
-<div class="modal" id="modalPrivacidade">
+<div
+class="modal"
+id="modalPrivacidade"
+role="dialog"
+aria-modal="true"
+aria-labelledby="tituloPrivacidade">
 
 <div class="modal-content">
 
-<h2>Política de Privacidade</h2>
+<h2 id="tituloPrivacidade">
+Política de Privacidade
+</h2>
+
+<br>
 
 <p>
-Os dados enviados através deste formulário
-serão utilizados apenas para responder a
-pedidos, sugestões ou esclarecimentos.
+Os dados pessoais enviados através deste formulário são utilizados apenas para análise e resposta às sugestões ou pedidos realizados.
 </p>
 
+<br>
+
 <p>
-O utilizador pode solicitar a remoção dos
-seus dados a qualquer momento.
+Os dados não serão cedidos a terceiros e poderão ser removidos mediante pedido do titular.
 </p>
 
 <br>
@@ -522,8 +513,26 @@ function fecharPrivacidade(){
 document.getElementById("modalPrivacidade").style.display="none";
 }
 
+window.addEventListener("keydown",function(event){
+
+if(event.key==="Escape"){
+fecharPrivacidade();
+}
+
+});
+
 function alternarTema(){
+
 document.body.classList.toggle("dark");
+
+const btn=document.querySelector(".theme-btn");
+
+if(document.body.classList.contains("dark")){
+btn.innerHTML="☀️ Tema Claro";
+}else{
+btn.innerHTML="🌙 Tema Escuro";
+}
+
 }
 
 document
@@ -544,32 +553,51 @@ const mensagem=document.getElementById("mensagem").value.trim();
 const rgpd=document.getElementById("rgpd").checked;
 
 if(nome.length<3){
-document.getElementById("erroNome").textContent="Nome inválido";
+
+document.getElementById("erroNome").textContent=
+"Introduza um nome válido.";
+
 valido=false;
 }
 
 const regex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 if(!regex.test(email)){
-document.getElementById("erroEmail").textContent="Email inválido";
+
+document.getElementById("erroEmail").textContent=
+"Introduza um email válido.";
+
 valido=false;
 }
 
 if(mensagem.length<10){
-document.getElementById("erroMensagem").textContent="Mensagem demasiado curta";
+
+document.getElementById("erroMensagem").textContent=
+"A mensagem deve ter pelo menos 10 caracteres.";
+
 valido=false;
 }
 
 if(!rgpd){
-alert("Tem de aceitar a Política de Privacidade.");
+
+alert(
+"É obrigatório aceitar a Política de Privacidade para cumprir o RGPD."
+);
+
 valido=false;
 }
 
 if(valido){
 
-alert("✅ Sugestão enviada com sucesso!");
+document.getElementById("sucesso").style.display="block";
 
 document.getElementById("formulario").reset();
+
+setTimeout(function(){
+
+document.getElementById("sucesso").style.display="none";
+
+},5000);
 
 }
 
