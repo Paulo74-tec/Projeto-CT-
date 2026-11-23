@@ -28,9 +28,9 @@ html{
 
 body{
     font-family:Arial,sans-serif;
-    line-height:1.6;
-    color:var(--texto);
     background:white;
+    color:var(--texto);
+    line-height:1.6;
 }
 
 body.dark{
@@ -39,13 +39,32 @@ body.dark{
 }
 
 header{
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+    color:white;
+}
+
+header::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
     background:
-    linear-gradient(rgba(0,40,80,.75),rgba(0,40,80,.75)),
-    url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80");
+        linear-gradient(
+            rgba(0,40,80,.65),
+            rgba(0,40,80,.65)
+        ),
+        url("images/cinca-azulejos.jpg");
+
     background-size:cover;
     background-position:center;
-    min-height:100vh;
-    color:white;
+    background-repeat:no-repeat;
+}
+
+header>*{
+    position:relative;
+    z-index:2;
 }
 
 .navbar{
@@ -56,14 +75,14 @@ header{
 }
 
 .logo{
-    font-size:1.6rem;
+    font-size:1.8rem;
     font-weight:bold;
 }
 
 .menu{
     display:flex;
-    list-style:none;
     gap:20px;
+    list-style:none;
 }
 
 .menu a{
@@ -84,28 +103,34 @@ header{
 .hero h1{
     font-size:4rem;
     margin-bottom:20px;
+    text-shadow:0 4px 10px rgba(0,0,0,.4);
 }
 
 .hero p{
-    margin-bottom:25px;
-    font-size:1.2rem;
+    font-size:1.3rem;
+    margin-bottom:30px;
 }
 
 .btn{
     display:inline-block;
-    text-decoration:none;
+    padding:15px 30px;
     background:white;
     color:var(--azul);
+    text-decoration:none;
     font-weight:bold;
-    padding:15px 25px;
     border-radius:8px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
 }
 
 .cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    padding:60px 10%;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:25px;
+    padding:70px 10%;
 }
 
 .card{
@@ -115,10 +140,8 @@ header{
     box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
 
-.dark .card,
-.dark article{
+.dark .card{
     background:#222;
-    color:white;
 }
 
 .section{
@@ -129,6 +152,16 @@ header{
     text-align:center;
     color:var(--azul);
     margin-bottom:40px;
+}
+
+.dark .section h2{
+    color:#7cb4ff;
+}
+
+.sobre{
+    text-align:center;
+    max-width:900px;
+    margin:auto;
 }
 
 .news{
@@ -144,6 +177,10 @@ header{
     box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
 
+.dark article{
+    background:#222;
+}
+
 .documentos{
     display:flex;
     flex-direction:column;
@@ -152,9 +189,9 @@ header{
 
 .documentos a{
     text-decoration:none;
-    padding:15px;
-    background:#eef5ff;
+    background:#eef4ff;
     color:var(--azul);
+    padding:15px;
     border-radius:8px;
 }
 
@@ -169,7 +206,7 @@ form{
 
 label{
     display:block;
-    margin-bottom:8px;
+    margin-bottom:6px;
     font-weight:bold;
 }
 
@@ -186,30 +223,27 @@ textarea{
 }
 
 button{
-    width:100%;
     padding:15px;
     border:none;
     border-radius:8px;
     background:var(--azul);
     color:white;
     cursor:pointer;
-    font-size:16px;
+    width:100%;
 }
 
 .error{
-    display:block;
     color:red;
-    margin-top:5px;
     font-size:14px;
 }
 
 .success{
     display:none;
-    margin-top:20px;
+    margin-top:15px;
     background:#d4edda;
     color:#155724;
-    border-radius:8px;
     padding:15px;
+    border-radius:8px;
 }
 
 footer{
@@ -238,39 +272,22 @@ footer a{
     background:rgba(0,0,0,.7);
     justify-content:center;
     align-items:center;
-    padding:20px;
+    z-index:999;
 }
 
 .modal-content{
     background:white;
+    width:90%;
     max-width:700px;
-    width:100%;
+    border-radius:10px;
     padding:30px;
-    border-radius:12px;
-    max-height:80vh;
-    overflow:auto;
-}
-
-.visually-hidden{
-    position:absolute;
-    width:1px;
-    height:1px;
-    overflow:hidden;
-    clip:rect(0,0,0,0);
-}
-
-a:focus,
-button:focus,
-input:focus,
-textarea:focus{
-    outline:3px solid #ffcc00;
-    outline-offset:2px;
 }
 
 @media(max-width:768px){
 
 .navbar{
     flex-direction:column;
+    gap:15px;
 }
 
 .menu{
@@ -280,23 +297,18 @@ textarea:focus{
 
 .menu a{
     display:block;
-    padding:12px;
     text-align:center;
     background:rgba(255,255,255,.15);
+    padding:10px;
     border-radius:8px;
 }
 
 .hero h1{
-    font-size:2.3rem;
-}
-
-.cards,
-.news{
-    grid-template-columns:1fr;
+    font-size:2.5rem;
 }
 
 .section{
-    padding:50px 20px;
+    padding:60px 20px;
 }
 
 }
@@ -311,11 +323,12 @@ textarea:focus{
 <nav class="navbar">
 
 <div class="logo">
-CT CINCA
+🏺 CT CINCA
 </div>
 
 <ul class="menu">
 <li><a href="#inicio">Início</a></li>
+<li><a href="#sobre">Sobre</a></li>
 <li><a href="#noticias">Notícias</a></li>
 <li><a href="#documentos">Documentos</a></li>
 <li><a href="#contactos">Contacto</a></li>
@@ -324,9 +337,10 @@ CT CINCA
 </nav>
 
 <div class="hero">
+
 <div>
 
-<h1>Portal dos Trabalhadores</h1>
+<h1>Comissão de Trabalhadores CINCA</h1>
 
 <p>
 Informação • Transparência • Participação
@@ -337,30 +351,48 @@ Enviar Sugestão
 </a>
 
 </div>
+
 </div>
 
 </header>
+
+<section id="sobre" class="section">
+
+<h2>Sobre a Comissão</h2>
+
+<div class="sobre">
+
+<p>
+A Comissão de Trabalhadores da CINCA representa os trabalhadores,
+promovendo o diálogo, a participação e a defesa dos seus direitos,
+contribuindo para um ambiente de trabalho mais transparente,
+colaborativo e sustentável.
+</p>
+
+</div>
+
+</section>
 
 <section class="cards">
 
 <div class="card">
 <h3>📢 Comunicados</h3>
-<p>Informações e comunicados oficiais da Comissão.</p>
+<p>Informações oficiais da Comissão.</p>
 </div>
 
 <div class="card">
-<h3>📁 Documentos</h3>
-<p>Atas, regulamentos e informação institucional.</p>
+<h3>📄 Documentos</h3>
+<p>Atas, regulamentos e comunicados.</p>
 </div>
 
 <div class="card">
 <h3>📅 Agenda</h3>
-<p>Reuniões, assembleias e eventos.</p>
+<p>Eventos e reuniões futuras.</p>
 </div>
 
 <div class="card">
-<h3>👥 Trabalhadores</h3>
-<p>Representação e apoio aos trabalhadores.</p>
+<h3>✅ Sugestões Tratadas</h3>
+<p>85% concluídas.</p>
 </div>
 
 </section>
@@ -408,43 +440,38 @@ Enviar Sugestão
 
 <h2>Formulário de Sugestões</h2>
 
-<form id="formulario" novalidate>
+<form id="formulario">
 
 <div class="field">
 <label for="nome">Nome *</label>
-<input type="text" id="nome" required>
-<span id="erroNome" class="error" aria-live="polite"></span>
+<input type="text" id="nome">
+<span id="erroNome" class="error"></span>
 </div>
 
 <div class="field">
 <label for="email">Email *</label>
-<input type="email" id="email" required>
-<span id="erroEmail" class="error" aria-live="polite"></span>
+<input type="email" id="email">
+<span id="erroEmail" class="error"></span>
 </div>
 
 <div class="field">
 <label for="mensagem">Mensagem *</label>
-<textarea id="mensagem" rows="6" required></textarea>
-<span id="erroMensagem" class="error" aria-live="polite"></span>
+<textarea id="mensagem" rows="6"></textarea>
+<span id="erroMensagem" class="error"></span>
 </div>
 
 <div class="field">
-
 <label>
-
 <input type="checkbox" id="rgpd">
-
-Li e aceito a Política de Privacidade e o tratamento dos meus dados pessoais nos termos do RGPD.
-
+Aceito a Política de Privacidade e tratamento de dados.
 </label>
-
 </div>
 
 <button type="submit">
 Enviar Sugestão
 </button>
 
-<div id="sucesso" class="success" aria-live="assertive">
+<div id="sucesso" class="success">
 ✅ Sugestão enviada com sucesso.
 </div>
 
@@ -468,29 +495,24 @@ Política de Privacidade
 🌙 Tema Escuro
 </button>
 
-<div
-class="modal"
-id="modalPrivacidade"
-role="dialog"
-aria-modal="true"
-aria-labelledby="tituloPrivacidade">
+<div class="modal" id="modalPrivacidade">
 
 <div class="modal-content">
 
-<h2 id="tituloPrivacidade">
-Política de Privacidade
-</h2>
+<h2>Política de Privacidade</h2>
 
 <br>
 
 <p>
-Os dados pessoais enviados através deste formulário são utilizados apenas para análise e resposta às sugestões ou pedidos realizados.
+Os dados submetidos através deste formulário destinam-se
+exclusivamente ao tratamento das solicitações apresentadas.
 </p>
 
 <br>
 
 <p>
-Os dados não serão cedidos a terceiros e poderão ser removidos mediante pedido do titular.
+Os dados não serão partilhados com terceiros
+e poderão ser eliminados mediante pedido.
 </p>
 
 <br>
@@ -504,22 +526,6 @@ Fechar
 </div>
 
 <script>
-
-function abrirPrivacidade(){
-document.getElementById("modalPrivacidade").style.display="flex";
-}
-
-function fecharPrivacidade(){
-document.getElementById("modalPrivacidade").style.display="none";
-}
-
-window.addEventListener("keydown",function(event){
-
-if(event.key==="Escape"){
-fecharPrivacidade();
-}
-
-});
 
 function alternarTema(){
 
@@ -535,17 +541,32 @@ btn.innerHTML="🌙 Tema Escuro";
 
 }
 
-document
-.getElementById("formulario")
+function abrirPrivacidade(){
+document.getElementById("modalPrivacidade").style.display="flex";
+}
+
+function fecharPrivacidade(){
+document.getElementById("modalPrivacidade").style.display="none";
+}
+
+window.addEventListener("keydown",function(e){
+
+if(e.key==="Escape"){
+fecharPrivacidade();
+}
+
+});
+
+document.getElementById("formulario")
 .addEventListener("submit",function(e){
 
 e.preventDefault();
 
 let valido=true;
 
-document.getElementById("erroNome").textContent="";
-document.getElementById("erroEmail").textContent="";
-document.getElementById("erroMensagem").textContent="";
+erroNome.textContent="";
+erroEmail.textContent="";
+erroMensagem.textContent="";
 
 const nome=document.getElementById("nome").value.trim();
 const email=document.getElementById("email").value.trim();
@@ -554,44 +575,39 @@ const rgpd=document.getElementById("rgpd").checked;
 
 if(nome.length<3){
 
-document.getElementById("erroNome").textContent=
-"Introduza um nome válido.";
-
+erroNome.textContent="Nome inválido.";
 valido=false;
+
 }
 
-const regex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-if(!regex.test(email)){
+if(!emailRegex.test(email)){
 
-document.getElementById("erroEmail").textContent=
-"Introduza um email válido.";
-
+erroEmail.textContent="Email inválido.";
 valido=false;
+
 }
 
 if(mensagem.length<10){
 
-document.getElementById("erroMensagem").textContent=
-"A mensagem deve ter pelo menos 10 caracteres.";
-
+erroMensagem.textContent="Mínimo 10 caracteres.";
 valido=false;
+
 }
 
 if(!rgpd){
 
-alert(
-"É obrigatório aceitar a Política de Privacidade para cumprir o RGPD."
-);
-
+alert("Tem de aceitar a Política de Privacidade.");
 valido=false;
+
 }
 
 if(valido){
 
 document.getElementById("sucesso").style.display="block";
 
-document.getElementById("formulario").reset();
+this.reset();
 
 setTimeout(function(){
 
