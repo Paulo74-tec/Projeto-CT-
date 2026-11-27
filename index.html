@@ -9,11 +9,13 @@
 <style>
 
 :root{
- --azul:#003b7a;
- --azul-claro:#005faf;
- --ouro:#d4a017;
- --cinza:#f5f7fa;
- --texto:#222;
+ --azul:#0066cc;
+ --azul-claro:#1aa7ec;
+ --ouro:#ffb703;
+ --laranja:#ff6b35;
+ --verde:#00b894;
+ --cinza:#eef6ff;
+ --texto:#183153;
 }
 
 *{
@@ -28,19 +30,19 @@ html{
 
 body{
  font-family:Arial,Helvetica,sans-serif;
- background:#fff;
+ background:#f8fbff;
  color:var(--texto);
  line-height:1.6;
 }
 
 body.dark{
- background:#121212;
+ background:#091a2e;
  color:#fff;
 }
 
 header{
  min-height:100vh;
- background:url("hero-mosaico.jpg.png") center center/cover no-repeat;
+ background:linear-gradient(rgba(0,102,204,.38),rgba(0,48,102,.58)),url("hero-mosaico.jpg.png") center center/cover no-repeat ;
  display:flex;
  flex-direction:column;
 }
@@ -50,7 +52,8 @@ header{
  justify-content:space-between;
  align-items:center;
  padding:20px 8%;
- background:rgba(0,0,0,.35);
+ background:rgba(0,55,118,.88);
+ backdrop-filter:blur(8px);
  position:relative;
 }
 
@@ -97,12 +100,14 @@ header{
 .hero-content{
  max-width:800px;
  width:100%;
- background:rgba(0,0,0,.45);
+ background:linear-gradient(135deg,rgba(0,102,204,.92),rgba(0,184,148,.82));
  backdrop-filter:blur(5px);
  color:white;
  text-align:center;
  padding:50px;
  border-radius:20px;
+  border:2px solid rgba(255,255,255,.35);
+  box-shadow:0 18px 45px rgba(0,58,120,.35);
 }
 
 .hero h1{
@@ -118,15 +123,17 @@ header{
 .btn{
  display:inline-block;
  padding:15px 30px;
- background:var(--ouro);
+ background:var(--laranja);
  color:white;
  text-decoration:none;
  border-radius:8px;
  font-weight:bold;
  transition:.3s;
+  box-shadow:0 8px 20px rgba(255,107,53,.35);
 }
 
 .btn:hover{
+  background:#ff8a5b;
  transform:translateY(-3px);
 }
 
@@ -138,16 +145,19 @@ header{
  text-align:center;
  color:var(--azul);
  margin-bottom:40px;
+ font-size:2.2rem; 
 }
 
 .dark .section h2{
- color:#8ac2ff;
+ color:#56c7ff;
+
 }
 
 .sobre{
  max-width:900px;
  margin:auto;
- text-align:center;
+ tex font-size:1.08rem;t-align:center;
+ 
 }
 
 .cards{
@@ -160,12 +170,18 @@ header{
 .card{
  background:white;
  padding:25px;
- border-radius:12px;
- box-shadow:0 4px 12px rgba(0,0,0,.1);
+ border-radius:12px; box-shadow:0 8px 20px rgba(0,102,204,.12);
+}
+
+.card:nth-child(2){border-top-color:var(--ouro);}
+.card:nth-child(3){border-top-color:var(--laranja);}
+.card:nth-child(4){border-top-color:var(--verde);}
+ 
+ 
 }
 
 .dark .card{
- background:#222;
+ background:#16324f;
 }
 
 .news{
