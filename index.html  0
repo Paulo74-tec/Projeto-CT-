@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Site da Comissão de Trabalhadores de [Nome da Empresa].">
+  <title>Comissão de Trabalhadores | [Nome da Empresa]</title>
+
+  <style>
+    :root {
+      --azul: #173b5e;
+      --azul-claro: #eaf2f8;
+      --texto: #24313d;
+      --fundo: #f7f9fb;
+      --branco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--texto);
+      background: var(--fundo);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      color: var(--branco);
+      background: var(--azul);
+    }
+
+    nav {
+      max-width: 1000px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--branco);
+      text-decoration: none;
+      margin-left: 18px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      max-width: 1000px;
+      margin: auto;
+      padding: 72px 24px 84px;
+    }
+
+    .hero h1 {
+      max-width: 700px;
+      margin: 0 0 12px;
+      font-size: clamp(2.2rem, 6vw, 3.6rem);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 1.15rem;
+    }
+
+    .botao {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 12px 18px;
+      color: var(--azul);
+      background: var(--branco);
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 28px 24px 60px;
+    }
+
+    section {
+      padding: 30px;
+      margin: 22px 0;
+      background: var(--branco);
+      border-radius: 10px;
+      box-shadow: 0 3px 14px #173b5e12;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--azul);
+    }
+
+    .cartao {
+      padding: 18px;
+      background: var(--azul-claro);
+      border-radius: 8px;
+    }
+
+    .contacto {
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      padding: 24px;
+      color: var(--branco);
+      background: var(--azul);
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--branco);
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        display: block;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 10px 12px 0 0;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      section {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav aria-label="Navegação principal">
+      <strong>Comissão de Trabalhadores</strong>
+      <div>
+        <a href="#sobre">Sobre</a>
+        <a href="#novidades">Novidades</a>
+        <a href="#contacto">Contactos</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <h1>A voz dos trabalhadores. A defender os seus direitos.</h1>
+      <p>
+        A Comissão de Trabalhadores representa os trabalhadores de
+        <strong>[Nome da Empresa]</strong> e promove o diálogo e melhores
+        condições de trabalho.
+      </p>
+      <a class="botao" href="#contacto">Falar com a Comissão</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="sobre">
+      <h2>O que fazemos</h2>
+      <ul>
+        <li>Representamos os trabalhadores junto da administração.</li>
+        <li>Acompanhamos questões relacionadas com as condições de trabalho.</li>
+        <li>Partilhamos informações que afetam os trabalhadores.</li>
+        <li>Recolhemos sugestões, preocupações e propostas.</li>
+      </ul>
+    </section>
+
+    <section id="novidades">
+      <h2>Comunicados e novidades</h2>
+
+      <article class="cartao">
+        <h3>[Título do comunicado]</h3>
+        <p>[Escreve aqui uma breve descrição da notícia ou informação.]</p>
+        <small>Publicado em: [dia/mês/ano]</small>
+      </article>
+
+      <!-- Duplica o bloco <article> para acrescentar mais comunicados. -->
+    </section>
+
+    <section id="contacto" class="contacto">
+      <h2>Contacta-nos</h2>
+      <p>
+        Envia-nos uma questão, sugestão ou preocupação. A tua participação
+        é importante.
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:[email-da-comissao]">[email-da-comissao]</a>
+      </p>
+      <p><strong>Local ou horário de atendimento:</strong> [preencher]</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Comissão de Trabalhadores de [Nome da Empresa] · <span id="ano"></span></p>
+  </footer>
+
+  <script>
+    document.getElementById("ano").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
